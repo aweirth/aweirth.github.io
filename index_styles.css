@@ -1,0 +1,20 @@
+.index_head {
+    margin-top: 30px;
+    padding: 7px;
+    background-color: #29e6e3;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    font-size: 30px;
+    line-height: 1.5;
+    text-align:center;
+    font-weight: bold;
+}
+
+.section_header{
+    text-align: center;
+    padding: 10px;
+}
+
+.body{
+    padding: 15px;
+}
