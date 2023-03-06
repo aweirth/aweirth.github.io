@@ -1,0 +1,22 @@
+body {
+    background-color: #f1f1f1;
+    color: #333;
+}
+.header {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #384ef5;
+    color: white;
+}
+.main_idea {
+    font-weight: bold;
+}
+.dark-mode {
+    background-color: black;
+    color: #00ffff;
+}
+.header.dark_mode {
+    background-color: rgb(0, 0, 0);
+    color: #00ffff;
+}
