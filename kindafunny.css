@@ -1,0 +1,37 @@
+
+body {
+    background-color: #ffffff;
+    color: #333;
+}
+
+.text_body {
+    background-color: #ffffff;
+    color: #333;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.header {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #000000;
+    color: white;
+}
+.main_idea {
+    font-weight: bold;
+    font-size: 25px;
+}
+canvas {
+    border: 1px solid rgb(255, 255, 255);
+    margin: auto;
+    display: block;
+    background-color: #ffffff;
+}
+
+.js_desc {
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
