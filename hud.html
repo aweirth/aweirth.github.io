@@ -2,7 +2,32 @@
 <html>
 <head>
   <title>Print Webpage as PDF</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js">
+    function generatePDF() {
+      //get html content
+      const html = document.documentElement.innerHTML;
+
+      //take this content to a new window
+      const win = window.open('', '', 'height=700,width=700');
+
+      //write html to this new window
+      win.document.write(html);
+
+      //let the  window load the content
+      win.onload = function() {
+        //create new PDF
+        const doc = new jsPDF();
+
+        //add html to pdf
+        doc.html(win.document.body, {
+          callback: function () {
+            //save the pdf
+            doc.save("webpage.pdf");
+          }
+        });
+      };
+    }
+  </script>
   <style>
     body {
     background-color: #ffffff;
@@ -72,31 +97,5 @@
 
     8. Do you think the settlement was reasonable? Or more of a slap on the wrist to facebook for not cooperating with the HUD enough?
   </div>
-  <script>
-    function generatePDF() {
-      //get html content
-      const html = document.documentElement.innerHTML;
-
-      //take this content to a new window
-      const win = window.open('', '', 'height=700,width=700');
-
-      //write html to this new window
-      win.document.write(html);
-
-      //let the  window load the content
-      win.onload = function() {
-        //create new PDF
-        const doc = new jsPDF();
-
-        //add html to pdf
-        doc.html(win.document.body, {
-          callback: function () {
-            //save the pdf
-            doc.save("webpage.pdf");
-          }
-        });
-      };
-    }
-  </script>
 </body>
 </html>
