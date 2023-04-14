@@ -1,37 +1,102 @@
-<html lang = 'en'>
-    <head>
-        <title>hud</title>
-        <link rel="stylesheet" href="hud.css"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js">
-            function generatePDF() {
-              // Get the HTML content of the webpage
-              const html = document.documentElement.innerHTML;
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Print Webpage as PDF</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+  <style>
+    body {
+    background-color: #ffffff;
+    color: #333;
+    }
 
-              // Create a new window to generate the PDF
-              const win = window.open('', '', 'height=700,width=700');
+    .text_body {
+        background-color: #ffffff;
+        color: #333;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
 
-              // Write the HTML content to the new window
-              win.document.write(html);
+    .header {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        background-color: #000000;
+        color: white;
+    }
+    .main_idea {
+        font-weight: bold;
+        font-size: 25px;
+    }
+  </style>
+</head>
+<body>
+  <div class = "header">
+    HUD Response Paper<br><br>
+    Alex Weirth
+  </div>
+  <br><br>
+  <p style="text-align: center;">
+    <button onclick="generatePDF()">Download as PDF</button>
+  </p>
+  <div class = "body">
+    <div class = "main_idea">
+      1. The US Department of Housing and Urban Development is suing Facebook for allegedly 
+      violating the Fair Housing Act by allowing housing discrimination on their platform. This discrimination
+      comes from ad serving algorithims that are serving a select group of ads based on factors 
+      such as the race of the user which allows facebook to basically draw lines of where to house people based on race. <br><br>
+    </div>
+    2. How the algorthims are able to do this is through filtering housing ads to not appear fo certain people who might be of a certain 
+    race, income, or have a disabillity. Facebook gave the option to large ad companies to exclude viewers of their ads based on 
+    non-American-born, non-Christian, interested in Hispanic culture, and ZIP code. <br><br>
 
-              // Wait for the new window to finish loading the HTML content
-              win.onload = function() {
-                // Create a new jsPDF instance
-                const doc = new jsPDF();
+    3. Facebook settled with several civil rights and housing advocates for a reported $5 million dollars which seems like not much at 
+    all to me for a practice that is inherently and brutally racist and uninclusive. <br><br>
 
-                // Add the HTML content as a PDF page
-                doc.html(win.document.body, {
-                  callback: function () {
-                    // Save the PDF file
-                    doc.save("webpage.pdf");
-                  }
-                });
-              };
-            }
-        </script>
-    </head>
-    <body>
-      <h1>Heading</h1>
-      <p>Example  text</p>
-      <button onclick="generatePDF()">Download as PDF</button>
-    </body>
+    4. Facebook promised reforms after previous reports of allowing advertisers access to filters referred to as "Ethnic Affinities," 
+    but a follow-up report found a significant lapse in Facebook's monitoring of advertisers. Also reported was that facebook was "working"
+    with the housing and urban Development department and was suprised by the lawsuit which makes me think they were taking no action at 
+    all to fix their ad algorithims. <br><br>
+
+    5. Algorithms can perpetuate and reinforce discriminatory practices. In the case of Facebook, the use of ad algorithms that 
+    discriminated against certain groups of people could have reinforced and perpetuated systemic discrimination in the housing market and 
+    society as a whole. This shows how algorithms can have real-world consequences and amplify existing inequalities. <br><br>
+
+    6. Examples such as this show how some large tech algorithims must be held accountable and be public to some extent because This
+    is only one example and there could be so much more going on behind the scenes at facebook or a range of other social media
+    giants. <br><br>
+
+    7. One thing I thought about was what if the algorithims could be used in sort of an opposite way? Not to discriminate or keep
+    other people groups out of certain information but is there a way to educate more people on this issue? To possibly educate people
+    on why they are getting a certain ad? Is the best type of ads something you should be responsible for? I feel like left to their devices
+    this case is totally reasonable to expect out of big tech and advertisers. <br><br>
+
+    8. Do you think the settlement was reasonable? Or more of a slap on the wrist to facebook for not cooperating with the HUD enough?
+  </div>
+  <script>
+    function generatePDF() {
+      //get html content
+      const html = document.documentElement.innerHTML;
+
+      //take this content to a new window
+      const win = window.open('', '', 'height=700,width=700');
+
+      //write html to this new window
+      win.document.write(html);
+
+      //let the  window load the content
+      win.onload = function() {
+        //create new PDF
+        const doc = new jsPDF();
+
+        //add html to pdf
+        doc.html(win.document.body, {
+          callback: function () {
+            //save the pdf
+            doc.save("webpage.pdf");
+          }
+        });
+      };
+    }
+  </script>
+</body>
 </html>
